@@ -1,0 +1,140 @@
+.gridShell {
+  --row-header-width: 52px;
+  --column-header-height: 28px;
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.corner {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: var(--row-header-width);
+  height: var(--column-header-height);
+  border-right: 1px solid #cfd8e3;
+  border-bottom: 1px solid #cfd8e3;
+  background: #f1f5f9;
+}
+
+.columnHeaders {
+  position: absolute;
+  z-index: 4;
+  left: var(--row-header-width);
+  right: 0;
+  top: 0;
+  height: var(--column-header-height);
+  overflow: hidden;
+  border-bottom: 1px solid #cfd8e3;
+  background: #f1f5f9;
+}
+
+.rowHeaders {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  top: var(--column-header-height);
+  bottom: 0;
+  width: var(--row-header-width);
+  overflow: hidden;
+  border-right: 1px solid #cfd8e3;
+  background: #f1f5f9;
+}
+
+.headerCanvas {
+  position: relative;
+  will-change: transform;
+}
+
+.columnHeader,
+.rowHeader {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.columnHeader {
+  top: 0;
+  height: var(--column-header-height);
+  border-right: 1px solid #dbe3ed;
+}
+
+.rowHeader {
+  left: 0;
+  width: var(--row-header-width);
+  border-bottom: 1px solid #dbe3ed;
+}
+
+.viewport {
+  position: absolute;
+  inset: var(--column-header-height) 0 0 var(--row-header-width);
+  overflow: auto;
+  outline: none;
+  background: #ffffff;
+}
+
+.viewport:focus-visible {
+  box-shadow: inset 0 0 0 2px #2563eb;
+}
+
+.canvas {
+  position: relative;
+}
+
+.visibleCells {
+  position: absolute;
+  left: 0;
+  top: 0;
+  will-change: transform;
+}
+
+.cell {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  border-right: 1px solid #edf2f7;
+  border-bottom: 1px solid #edf2f7;
+  background: #ffffff;
+  color: #111827;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+}
+
+.cellText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.selectedCell {
+  background: #eaf2ff;
+}
+
+.activeCell {
+  z-index: 2;
+  box-shadow: inset 0 0 0 2px #2563eb;
+  background: #ffffff;
+}
+
+.cellEditor {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #2563eb;
+  outline: 0;
+  padding: 0 6px;
+  background: #ffffff;
+  color: #111827;
+}
