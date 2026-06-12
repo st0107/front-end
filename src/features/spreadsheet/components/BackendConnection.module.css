@@ -1,0 +1,149 @@
+.connectionBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  height: 40px;
+  padding: 6px 10px;
+  border-bottom: 1px solid #d7dee8;
+  background: #f8fafc;
+}
+
+.statusGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.workbookName {
+  min-width: 0;
+  overflow: hidden;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workbookNameForm {
+  flex: 0 1 220px;
+  min-width: 120px;
+}
+
+.workbookNameInput {
+  width: 100%;
+  min-width: 0;
+  height: 26px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0 6px;
+  overflow: hidden;
+  color: #0f172a;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  outline: none;
+}
+
+.workbookNameInput:hover,
+.workbookNameInput:focus {
+  border-color: #cbd5e1;
+  background: #ffffff;
+}
+
+.meta,
+.status {
+  color: #475569;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.status {
+  color: #0f766e;
+}
+
+.error {
+  min-width: 0;
+  overflow: hidden;
+  color: #b91c1c;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.input {
+  width: 190px;
+  max-width: 24vw;
+  height: 28px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 0 8px;
+  color: #0f172a;
+  background: #ffffff;
+}
+
+.actionButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  min-width: 86px;
+  height: 28px;
+  border: 1px solid #2563eb;
+  border-radius: 6px;
+  padding: 0 10px;
+  color: #ffffff;
+  background: #2563eb;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondaryButton {
+  min-width: 124px;
+  border-color: #cbd5e1;
+  color: #334155;
+  background: #ffffff;
+}
+
+.actionButton:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.secondaryButton:hover:not(:disabled) {
+  border-color: #94a3b8;
+  background: #eef3f8;
+}
+
+.actionButton:disabled,
+.secondaryButton:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+@media (max-width: 720px) {
+  .connectionBar {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .statusGroup {
+    flex-basis: 100%;
+  }
+
+  .input {
+    flex: 1 1 140px;
+    max-width: none;
+  }
+
+  .actionButton,
+  .secondaryButton {
+    flex: 1 1 140px;
+  }
+}

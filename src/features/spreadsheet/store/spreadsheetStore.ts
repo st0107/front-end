@@ -18,6 +18,7 @@ interface SpreadsheetState {
     future: HistoryEntry[];
   };
   metrics: GridMetrics;
+  hydrateCells: (cells: CellMap, metrics?: Partial<Pick<GridMetrics, 'rowCount' | 'columnCount'>>) => void;
   setActiveCell: (position: CellPosition, extendSelection?: boolean) => void;
   setEditingCell: (position: CellPosition | null) => void;
   setCellRaw: (position: CellPosition, raw: string) => void;
@@ -53,6 +54,15 @@ const initialState = {
 
 export const useSpreadsheetStore = create<SpreadsheetState>((set, get) => ({
   ...initialState,
+  hydrateCells: (cells, metrics) =>
+    set((state) => ({
+      cells,
+      history: { past: [], future: [] },
+      metrics: {
+        ...state.metrics,
+        ...metrics,
+      },
+    })),
   setActiveCell: (position, extendSelection = false) => {
     const metrics = get().metrics;
     const next = clampPosition(position, metrics.rowCount, metrics.columnCount);
