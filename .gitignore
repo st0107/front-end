@@ -3,7 +3,7 @@ node_modules/
 
 # Production Build
 dist/
-!index.html
+index.html
 build/
 
 # Vite
